@@ -27,11 +27,8 @@ function FormValidation() {
       <label htmlFor="firstName">First Name</label>
       <input
         id="firstName"
-        name="firstName"
         type="text"
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.firstName}
+        {...formik.getFieldProps("firstName")}
       />
       {formik.touched.firstName && formik.errors.firstName ? (
         <div>{formik.errors.firstName}</div>
@@ -40,11 +37,8 @@ function FormValidation() {
       <label htmlFor="lastName">Last Name</label>
       <input
         id="lastName"
-        name="lastName"
         type="text"
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.lastName}
+        {...formik.getFieldProps("lastName")}
       />
       {formik.touched.lastName && formik.errors.lastName ? (
         <div>{formik.errors.lastName}</div>
@@ -53,11 +47,8 @@ function FormValidation() {
       <label htmlFor="email">Email Address</label>
       <input
         id="email"
-        name="email"
         type="email"
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.email}
+        {...formik.getFieldProps("email")}
       />
       {formik.touched.email && formik.errors.email ? (
         <div>{formik.errors.email}</div>
