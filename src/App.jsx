@@ -47,7 +47,9 @@ function FormValidation() {
         onBlur={formik.handleBlur}
         value={formik.values.firstName}
       />
-      {formik.errors.firstName ? <div>{formik.errors.firstName}</div> : null}
+      {formik.touched.firstName && formik.errors.firstName ? (
+        <div>{formik.errors.firstName}</div>
+      ) : null}
 
       <label htmlFor="lastName">Last Name</label>
       <input
@@ -58,7 +60,9 @@ function FormValidation() {
         onBlur={formik.handleBlur}
         value={formik.values.lastName}
       />
-      {formik.errors.lastName ? <div>{formik.errors.lastName}</div> : null}
+      {formik.touched.lastName && formik.errors.lastName ? (
+        <div>{formik.errors.lastName}</div>
+      ) : null}
 
       <label htmlFor="email">Email Address</label>
       <input
@@ -69,7 +73,9 @@ function FormValidation() {
         onBlur={formik.handleBlur}
         value={formik.values.email}
       />
-      {formik.errors.email ? <div>{formik.errors.email}</div> : null}
+      {formik.touched.email && formik.errors.email ? (
+        <div>{formik.errors.email}</div>
+      ) : null}
 
       <button type="submit">Submit</button>
     </form>
