@@ -8,7 +8,11 @@ import MyCheckbox from "./form-fields/MyCheckbox";
 function FormValidation() {
   return (
     <Formik
-      initialValues={{ firstName: "", lastName: "", email: "" }}
+      initialValues={{
+        firstName: "",
+        lastName: "",
+        email: "",
+      }}
       validationSchema={Yup.object({
         firstName: Yup.string()
           .max(15, "Must be 15 characters or less")
@@ -24,8 +28,11 @@ function FormValidation() {
           setSubmitting(false);
         }, 400);
       }}
+      onReset={() => {
+        console.log("Resetting form");
+      }}
     >
-      {({ isSubmitting }) => (
+      {({ isSubmitting, handleReset }) => (
         <Form>
           <MyTextInput
             label="First Name"
@@ -67,8 +74,8 @@ function FormValidation() {
             </button>
             <br />
             <button
-              type="reset"
-              disabled={isSubmitting}
+              type="button"
+              onClick={handleReset}
             >
               Reset
             </button>
