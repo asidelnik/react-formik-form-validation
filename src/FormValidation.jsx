@@ -60,10 +60,17 @@ function FormValidation() {
           </MyCheckbox>
           <div>
             <button
-              disabled={isSubmitting}
               type="submit"
+              disabled={isSubmitting}
             >
               Submit
+            </button>
+            <br />
+            <button
+              type="reset"
+              disabled={isSubmitting}
+            >
+              Reset
             </button>
           </div>
         </Form>
