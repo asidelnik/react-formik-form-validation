@@ -5,16 +5,10 @@ import MyTextInput from "./form-fields/MyTextInput";
 import MySelect from "./form-fields/MySelect";
 import MyCheckbox from "./form-fields/MyCheckbox";
 
-function FormValidation() {
+function FormValidation({ ...initialValues }) {
   return (
     <Formik
-      initialValues={{
-        firstName: "",
-        lastName: "",
-        email: "",
-        jobType: "Designer",
-        acceptedTerms: true,
-      }}
+      initialValues={initialValues}
       validationSchema={Yup.object({
         firstName: Yup.string()
           .max(15, "Must be 15 characters or less")
