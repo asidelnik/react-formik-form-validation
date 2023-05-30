@@ -2,6 +2,7 @@ import { Formik, Form } from "formik";
 import "./App.css";
 import * as Yup from "yup";
 import MyTextInput from "./form-fields/MyTextInput";
+import MySelect from "./form-fields/MySelect";
 
 function FormValidation() {
   return (
@@ -42,6 +43,16 @@ function FormValidation() {
           type="text"
           placeholder="jj@jj.com"
         />
+        <MySelect
+          label="Job Type"
+          name="jobType"
+        >
+          <option value="">Select a job type</option>
+          <option value="designer">Designer</option>
+          <option value="development">Developer</option>
+          <option value="product">Product Manager</option>
+          <option value="other">Other</option>
+        </MySelect>
         <div>
           <button type="submit">Submit</button>
         </div>
