@@ -3,6 +3,7 @@ import "./App.css";
 import * as Yup from "yup";
 import MyTextInput from "./form-fields/MyTextInput";
 import MySelect from "./form-fields/MySelect";
+import MyCheckbox from "./form-fields/MyCheckbox";
 
 function FormValidation() {
   return (
@@ -53,6 +54,10 @@ function FormValidation() {
           <option value="product">Product Manager</option>
           <option value="other">Other</option>
         </MySelect>
+        <MyCheckbox name="acceptedTerms">
+          I accept the terms and conditions
+        </MyCheckbox>
+
         <div>
           <button type="submit">Submit</button>
         </div>
