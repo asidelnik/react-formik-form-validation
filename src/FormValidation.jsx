@@ -1,7 +1,7 @@
 import { Formik, Form } from "formik";
 import "./App.css";
 import * as Yup from "yup";
-import TextInput from "./form-fields/TextInput";
+import MyTextInput from "./form-fields/MyTextInput";
 
 function FormValidation() {
   return (
@@ -24,19 +24,19 @@ function FormValidation() {
       }}
     >
       <Form>
-        <TextInput
+        <MyTextInput
           label="First Name"
           name="firstName"
           type="text"
           placeholder="Joe"
         />
-        <TextInput
+        <MyTextInput
           label="Last Name"
           name="lastName"
           type="text"
           placeholder="Johnson"
         />
-        <TextInput
+        <MyTextInput
           label="Email"
           name="email"
           type="text"
