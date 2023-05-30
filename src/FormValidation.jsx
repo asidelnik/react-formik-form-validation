@@ -25,43 +25,49 @@ function FormValidation() {
         }, 400);
       }}
     >
-      <Form>
-        <MyTextInput
-          label="First Name"
-          name="firstName"
-          type="text"
-          placeholder="Joe"
-        />
-        <MyTextInput
-          label="Last Name"
-          name="lastName"
-          type="text"
-          placeholder="Johnson"
-        />
-        <MyTextInput
-          label="Email"
-          name="email"
-          type="text"
-          placeholder="jj@jj.com"
-        />
-        <MySelect
-          label="Job Type"
-          name="jobType"
-        >
-          <option value="">Select a job type</option>
-          <option value="designer">Designer</option>
-          <option value="development">Developer</option>
-          <option value="product">Product Manager</option>
-          <option value="other">Other</option>
-        </MySelect>
-        <MyCheckbox name="acceptedTerms">
-          I accept the terms and conditions
-        </MyCheckbox>
-
-        <div>
-          <button type="submit">Submit</button>
-        </div>
-      </Form>
+      {({ isSubmitting }) => (
+        <Form>
+          <MyTextInput
+            label="First Name"
+            name="firstName"
+            type="text"
+            placeholder="Joe"
+          />
+          <MyTextInput
+            label="Last Name"
+            name="lastName"
+            type="text"
+            placeholder="Johnson"
+          />
+          <MyTextInput
+            label="Email"
+            name="email"
+            type="text"
+            placeholder="jj@jj.com"
+          />
+          <MySelect
+            label="Job Type"
+            name="jobType"
+          >
+            <option value="">Select a job type</option>
+            <option value="designer">Designer</option>
+            <option value="development">Developer</option>
+            <option value="product">Product Manager</option>
+            <option value="other">Other</option>
+          </MySelect>
+          <MyCheckbox name="acceptedTerms">
+            I accept the terms and conditions
+          </MyCheckbox>
+          <div>
+            <button
+              disabled={isSubmitting}
+              type="submit"
+            >
+              Submit
+            </button>
+          </div>
+        </Form>
+      )}
     </Formik>
   );
 }
