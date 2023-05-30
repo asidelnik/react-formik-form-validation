@@ -12,6 +12,8 @@ function FormValidation() {
         firstName: "",
         lastName: "",
         email: "",
+        jobType: "Designer",
+        acceptedTerms: true,
       }}
       validationSchema={Yup.object({
         firstName: Yup.string()
