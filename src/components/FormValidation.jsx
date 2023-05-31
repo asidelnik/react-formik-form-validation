@@ -1,9 +1,9 @@
 import { Formik, Form } from "formik";
-import "./App.css";
 import * as Yup from "yup";
-import MyTextInput from "./form-fields/MyTextInput";
-import MySelect from "./form-fields/MySelect";
-import MyCheckbox from "./form-fields/MyCheckbox";
+import "../App.css";
+import MyTextInput from "../form-fields/MyTextInput";
+import MySelect from "../form-fields/MySelect";
+import MyCheckbox from "../form-fields/MyCheckbox";
 
 function FormValidation({ ...initialValues }) {
   return (
