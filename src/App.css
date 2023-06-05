@@ -673,5 +673,14 @@ button[type="submit"] {
 }
 
 .input-error {
-        border: 1px solid red !important;
+    border: 1px solid red !important;
+    animation: horizontal-shaking 0.35s ease-in-out 0s 1;
+}
+
+@keyframes horizontal-shaking {
+ 0% { transform: translateX(0) }
+ 25% { transform: translateX(5px) }
+ 50% { transform: translateX(-5px) }
+ 75% { transform: translateX(5px) }
+ 100% { transform: translateX(0) }
 }
