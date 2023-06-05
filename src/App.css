@@ -671,3 +671,7 @@ label.checkbox {
 button[type="submit"] {
   margin-top: 1rem;
 }
+
+.input-error {
+        border: 1px solid red !important;
+}
