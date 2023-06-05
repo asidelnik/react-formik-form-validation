@@ -17,6 +17,9 @@ function FormValidation({ ...initialValues }) {
           .max(20, "Must be 20 characters or less")
           .required("Required"),
         email: Yup.string().email("Invalid email address").required("Required"),
+        acceptedTerms: Yup.boolean()
+          .required("Required")
+          .oneOf([true], "You must accept the terms and conditions."),
       })}
       onSubmit={(values, { setSubmitting }) => {
         setTimeout(() => {

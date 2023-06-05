@@ -5,6 +5,7 @@ export default function MyTextInput({ label, ...props }) {
   const [field, meta] = useField(props);
   const isError = meta.touched && meta.error;
   const isFocused = meta.touched && meta.error && meta.active;
+
   return (
     <>
       <label htmlFor={props.id || props.name}>{label}</label>
