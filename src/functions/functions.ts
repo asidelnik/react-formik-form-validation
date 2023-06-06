@@ -7,14 +7,24 @@ export const initialValues = {
 };
 
 export const handleInputChange = (event) => {
-  // TODO - fix functio for updating key acceptedTerms. In useEffect, it sets boolean, but here string.
+  // TODO - fix function use for checkbox. It sets the wrong value to session & after refresh.
   const storedFormValues = sessionStorage.getItem("formState");
   const { name, value } = event.target;
   if (storedFormValues) {
-    sessionStorage.setItem(
-      "formState",
-      JSON.stringify({ ...JSON.parse(storedFormValues), [name]: value })
-    );
+    if (value === "false" || value === "true") {
+      sessionStorage.setItem(
+        "formState",
+        JSON.stringify({
+          ...JSON.parse(storedFormValues),
+          [name]: JSON.stringify(value),
+        })
+      );
+    } else {
+      sessionStorage.setItem(
+        "formState",
+        JSON.stringify({ ...JSON.parse(storedFormValues), [name]: value })
+      );
+    }
   } else {
     sessionStorage.setItem(
       "formState",
@@ -26,7 +36,8 @@ export const handleInputChange = (event) => {
 export const getSessionValue = (sessionKey) => {
   const storedFormValues = sessionStorage.getItem(sessionKey);
   if (storedFormValues) {
-    return JSON.parse(storedFormValues);
+    let form = JSON.parse(storedFormValues);
+    return { ...form, acceptedTerms: JSON.parse(form.acceptedTerms) };
   }
   return null;
 };

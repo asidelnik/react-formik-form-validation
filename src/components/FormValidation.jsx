@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import "../App.css";
@@ -8,7 +8,7 @@ import MyCheckbox from "../form-fields/MyCheckbox";
 import { initialValues, getSessionValue } from "../functions/functions";
 
 function FormValidation() {
-  const [formState] = useState(getSessionValue("formState") || initialValues);
+  const formState = getSessionValue("formState") || initialValues;
 
   useEffect(() => {
     const formStateFromStorage = sessionStorage.getItem("formState");
@@ -38,7 +38,7 @@ function FormValidation() {
           setSubmitting(false);
         }, 400);
       }}
-      onReset={(values, { setValues }) => {
+      onReset={(_, { setValues }) => {
         sessionStorage.removeItem("formState");
         setValues(initialValues);
       }}
