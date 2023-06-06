@@ -1,8 +1,8 @@
 # react-formik-form-validation
 The completed tutorial of React form validation with the Formik node package.
 
-**Tutorial**
+**Tutorial**\
 https://formik.org/docs/tutorial
 
-**Package**
+**Package**\
 https://www.npmjs.com/package/formik
