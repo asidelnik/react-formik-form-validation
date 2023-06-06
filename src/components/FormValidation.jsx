@@ -1,14 +1,25 @@
+import { useEffect, useState } from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import "../App.css";
 import MyTextInput from "../form-fields/MyTextInput";
 import MySelect from "../form-fields/MySelect";
 import MyCheckbox from "../form-fields/MyCheckbox";
+import { initialValues, getSessionValue } from "../functions/functions";
 
-function FormValidation({ ...initialValues }) {
+function FormValidation() {
+  const [formState] = useState(getSessionValue("formState") || initialValues);
+
+  useEffect(() => {
+    const formStateFromStorage = sessionStorage.getItem("formState");
+    if (!formStateFromStorage) {
+      sessionStorage.setItem("formState", JSON.stringify(formState));
+    }
+  }, []);
+
   return (
     <Formik
-      initialValues={initialValues}
+      initialValues={formState}
       validationSchema={Yup.object({
         firstName: Yup.string()
           .max(15, "Must be 15 characters or less")
@@ -27,8 +38,9 @@ function FormValidation({ ...initialValues }) {
           setSubmitting(false);
         }, 400);
       }}
-      onReset={() => {
-        console.log("Resetting form");
+      onReset={(values, { setValues }) => {
+        sessionStorage.removeItem("formState");
+        setValues(initialValues);
       }}
     >
       {({ isSubmitting, handleReset }) => (

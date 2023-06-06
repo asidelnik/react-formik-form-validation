@@ -1,4 +1,5 @@
 import { useField } from "formik";
+import { handleInputChange } from "../functions/functions";
 
 export default function MySelect({ label, ...props }) {
   const [field, meta] = useField(props);
@@ -12,6 +13,10 @@ export default function MySelect({ label, ...props }) {
         {...field}
         {...props}
         className={isError && !isFocused ? "input-error" : null}
+        onChange={(e) => {
+          handleInputChange(e);
+          field.onChange(e);
+        }}
       />
       {isError ? <div className="error">{meta.error}</div> : null}
     </div>
